@@ -1,5 +1,32 @@
 @import "tailwindcss";
 
+
+@font-face {
+  font-family: 'YekanBakhFaNum';
+  src: url('./fonts/lineawesome/YekanBakhFaNum-Medium.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'yakanBold';
+  src: url('./fonts/lineawesome/YekanBakhFaNum-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'titr';
+  src: url('./fonts/titr/Bahij-Titr.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+.font-yekan {
+  font-family: 'yakanBold';
+  font-style: 'yakanBold';
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
