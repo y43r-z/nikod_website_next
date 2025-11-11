@@ -8,7 +8,6 @@ import {
   Typography,
   Box,
   Card,
-  CardContent,
   Grid,
 } from "@mui/material";
 import Inventory2Icon from "@mui/icons-material/Inventory2";
@@ -55,7 +54,7 @@ const TitrNikod = () => {
         <Typography
           variant="body1"
           sx={{ fontSize: "1.05rem", maxWidth: 650, mb: 6, lineHeight: 2 }}
-          className="text-justify leading-relaxed text-gray-700"
+          className="text-justify  text-gray-700"
         >
           نیکد یک نرم‌افزار انبارداری و حسابداری آنلاین و تحت وب است که بدون
           نیاز به نصب، همیشه و همه‌جا در دسترس شماست. از صدور فاکتور تا مدیریت
@@ -133,29 +132,61 @@ const TitrNikod = () => {
               title: "رابط کاربری زیبا و ساده",
               desc: "تجربه کاربری لذت‌بخش با طراحی مدرن و استفاده آسان.",
             },
-          ].map((item, index) => (
+          ].map((myitem, index) => (
             <Grid
-              item
-              xs={12}
-              sm={6}
-              md={3}
+              // item
               key={index}
-              sx={{ maxWidth: 300 }}
-              className="border rounded-md border-blue-200 p-2"
+              // xs={12}
+              // sm={6}
+              // md={4}
+              // lg={3}
+              sx={{ 
+                maxWidth: 300,
+                display: 'flex',
+                justifyContent: 'center'
+              }}
             >
-              <Box>
-                <Box>{item.icon}</Box>
+              <Card 
+                sx={{ 
+                  maxWidth: 300,
+                  width: '100%',
+                  border: "1px solid",
+                  borderColor: "blue.200",
+                  p: 2,
+                  borderRadius: 2,
+                  boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+                  '&:hover': {
+                    boxShadow: "0 4px 16px rgba(0,0,0,0.15)",
+                  }
+                }}
+              >
+                <Box sx={{ textAlign: 'center' }}>
+                  <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
+                    {myitem.icon}
+                  </Box>
 
-                <Typography
-                  variant="p"
-                  className=" mb-2 text-blue-600 font-extrabold"
-                >
-                  {item.title}
-                </Typography>
-                <Typography variant="body2" className="text-gray-600">
-                  {item.desc}
-                </Typography>
-              </Box>
+                  <Typography
+                    variant="h6"
+                    sx={{ 
+                      mb: 2, 
+                      color: "blue.600", 
+                      fontWeight: "bold",
+                      fontSize: "1.1rem"
+                    }}
+                  >
+                    {myitem.title}
+                  </Typography>
+                  <Typography 
+                    variant="body2" 
+                    sx={{ 
+                      color: "gray.600",
+                      lineHeight: 1.6
+                    }}
+                  >
+                    {myitem.desc}
+                  </Typography>
+                </Box>
+              </Card>
             </Grid>
           ))}
         </Grid>

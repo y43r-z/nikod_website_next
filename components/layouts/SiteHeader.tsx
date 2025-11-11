@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { AppBar, Toolbar, Button, Typography, Box } from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
-import LoginIcon from "@mui/icons-material/Login";
+// import LoginIcon from "@mui/icons-material/Login";
 import Image from "next/image";
 
 const SiteHeader = () => {
@@ -49,9 +49,9 @@ const SiteHeader = () => {
           <Link href="/about" className=" hover:text-blue-400 transition">
             معرفی نرم‌افزار
           </Link>
-          <Link href="/contact" className=" hover:text-blue-400 transition">
+          {/* <Link href="/contact" className=" hover:text-blue-400 transition">
             تماس با ما
-          </Link>
+          </Link> */}
         </Box>
 
         {/* دکمه‌ها */}

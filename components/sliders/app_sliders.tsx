@@ -3,6 +3,7 @@ import React, { useRef } from "react";
 import { Box, Typography, IconButton } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, EffectFade } from "swiper/modules";
+import { Swiper as SwiperType } from "swiper/types";
 import Image from "next/image";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -42,8 +43,15 @@ const images = [
 ];
 
 const AppSliders = () => {
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
+  const prevRef = useRef<HTMLButtonElement>(null);
+  const nextRef = useRef<HTMLButtonElement>(null);
+
+  const handleBeforeInit = (swiper: SwiperType) => {
+    if (swiper.params.navigation && typeof swiper.params.navigation !== 'boolean') {
+      swiper.params.navigation.prevEl = prevRef.current;
+      swiper.params.navigation.nextEl = nextRef.current;
+    }
+  };
 
   return (
     <Box className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-5">
@@ -53,10 +61,7 @@ const AppSliders = () => {
           prevEl: prevRef.current,
           nextEl: nextRef.current,
         }}
-        onBeforeInit={(swiper) => {
-          swiper.params.navigation.prevEl = prevRef.current;
-          swiper.params.navigation.nextEl = nextRef.current;
-        }}
+        onBeforeInit={handleBeforeInit}
         effect="fade"
         fadeEffect={{ crossFade: true }}
         speed={1000}
@@ -72,7 +77,7 @@ const AppSliders = () => {
       >
         {images.map((img, index) => (
           <SwiperSlide key={index}>
-            <Box className="relative bg-gradient-to-br  to-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl overflow-hidden">
+            <Box className="relative bg-gradient-to-br to-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl overflow-hidden">
               <Box className="flex flex-col lg:flex-row items-center justify-between min-h-[300px] sm:min-h-[400px] lg:min-h-[400px] p-4 sm:p-6 lg:p-5">
                 {/* Content Section */}
                 <Box className="flex-1 text-center lg:text-right lg:order-2 mb-6 sm:mb-8 lg:mb-0 lg:mr-8 xl:mr-12 order-2 lg:order-2">
