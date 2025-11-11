@@ -1,15 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  swcMinify: true,
   compiler: {
     removeConsole: true,
-  
   },
-  ignoreDuringBuilds: true,
   eslint: {
     ignoreDuringBuilds: true,
   },
+  output: 'standalone',
+  trailingSlash: true,
+  basePath: '',
+  assetPrefix: '',
+  compress: false
 };
 
 export default nextConfig;
