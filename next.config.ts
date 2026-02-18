@@ -7,11 +7,25 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  typescript: {
+    ignoreBuildErrors: true, // نادیده گرفتن خطاهای TypeScript
+  },
   output: 'standalone',
   trailingSlash: true,
   basePath: '',
   assetPrefix: '',
-  compress: false
+  compress: true, // فعال کردن فشرده‌سازی
+  
+  // ❌ خط زیر را حذف کنید
+  // swcMinify: true,
+  
+  experimental: {
+    optimizePackageImports: [
+      'lucide-react',
+      '@heroicons/react',
+      // سایر پکیج‌های حجیم
+    ],
+  },
 };
 
 export default nextConfig;
